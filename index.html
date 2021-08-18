@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>Movie reviews</title>
   </head>
   <body class="text-white">
@@ -43,15 +44,15 @@
             <div class="w-50 mx-auto text-center">
                 <i class="fas fa-film"></i>
             </div>
-            <div class="w-50 mx-auto align-self-center">
+            <div class="w-50 mx-auto align-self-center" id="phrase">
                 <p class="display-3 text-start fw-lighter">"Hasta la vista, baby."</p>
                 <blockquote class="display-5 text-end">-Terminator</blockquote>
             </div>
         </div>
     </div>
 
-    <section class="bg-light py-5" id="about-this">
-        <div class="container text-center text-black">
+    <section class="bg-light py-5" >
+        <div class="container text-center text-black" id="about-this">
             <h1>What is this?</h1>
             <img src="img/question.png" class="img-fluid thinking" alt="thinking">
             <p class="fs-3 mt-3">This website let you search every known movie that you want to look for its information.</p>
@@ -81,9 +82,9 @@
     </section>
 
     <section class="bg-light text-black py-5">
-      <div class="container">
+      <div class="container" id="searcher">
         <h1 class="text-center">Let's find some movie</h1>
-        <form id="searcher">
+        <form>
           <input type="text" placeholder="type a movie..." class="form-control">
           <input type="submit" class="btn btn-dark mt-2" value="Search">
         </form>
