@@ -16,7 +16,7 @@
   <body class="text-white">
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid container">
           <a class="navbar-brand fw-bold fs-2" href="#">Movie Reviews</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center text-lg-left">
               <li class="nav-item ">
-                <a class="nav-link fs-4 text-white" aria-current="page" href="#">Check movies</a>
+                <a class="nav-link fs-4 text-white" href="#" id="moveToAboutThis" data-scroll="about-this">About this</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link fs-4 text-white" href="#" id="moveToKnownMovies" data-scroll="known-movies">Known movies</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-4 text-white" href="#">Searcher</a>
+                <a class="nav-link fs-4 text-white" href="#" id="moveToSearcher" data-scroll="searcher">Searcher</a>
               </li>
             </ul>
           </div>
@@ -36,7 +39,7 @@
     </nav>
 
     <div class="container my-5">
-        <div class="d-sm-flex">
+        <div class="d-sm-flex pt-5">
             <div class="w-50 mx-auto text-center">
                 <i class="fas fa-film"></i>
             </div>
@@ -47,13 +50,51 @@
         </div>
     </div>
 
-    <section class="bg-light py-5">
+    <section class="bg-light py-5" id="about-this">
         <div class="container text-center text-black">
             <h1>What is this?</h1>
             <img src="img/question.png" class="img-fluid thinking" alt="thinking">
+            <p class="fs-3 mt-3">This website let you search every known movie that you want to look for its information.</p>
         </div>
     </section>
     
+
+    <section class="d-flex flex-column py-5 container" id="known-movies">
+      <h1 class="text-center">Known movies</h1>
+      <div class="text-center text-md-start mt-3"> 
+        <div class="row text-center gap-5 gap-md-0">
+            <div class="col-12 col-md-4 mt-5 mt-md-0">
+              <h1>title</h1>
+              <img src="https://via.placeholder.com/250x180" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-4">
+              <h1>title</h1>
+              <img src="https://via.placeholder.com/250x180" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-4">
+              <h1>title</h1>
+              <img src="https://via.placeholder.com/250x180" class="img-fluid">
+            </div>
+        </div>
+        <input type="submit" class="btn btn-secondary mt-5 ms-md-5" value="See more">
+      </div>
+    </section>
+
+    <section class="bg-light text-black py-5">
+      <div class="container">
+        <h1 class="text-center">Let's find some movie</h1>
+        <form id="searcher">
+          <input type="text" placeholder="type a movie..." class="form-control">
+          <input type="submit" class="btn btn-dark mt-2" value="Search">
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-dark py-5">
+      <div class="container text-center">
+        <h4>Website built by @Samuelcodingg</h4>
+      </div>
+    </footer>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
