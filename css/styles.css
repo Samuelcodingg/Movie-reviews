@@ -3,6 +3,24 @@ body {
     font-family: 'Rokkitt', serif !important;
 }
 
+/*Phrase section*/
+
 .fa-film {
     font-size: 250px;
+}
+
+/*what's this section*/
+.thinking {
+    height: 250px;
+}
+
+/*Responsive*/
+@media (max-width: 768px) {
+    .fa-film {
+        font-size: 150px;
+    }
+
+    .thinking {
+        height: 200px;
+    }
 }
