@@ -2,7 +2,20 @@
 //when the DOM content is loaded
 $(document).ready(function(){
 
-    //animations with scrollreveals library
+    //show index components
+    showIndexComponents();
+
+    //scroll
+    linksScroll();
+
+    //getting data for known movies
+    getKnownMovies();
+
+    
+});
+
+//animations with scrollreveals library
+function showIndexComponents() {
     window.sr = ScrollReveal();
     sr.reveal('#phrase',{
         duration: 3000
@@ -27,8 +40,9 @@ $(document).ready(function(){
     sr.reveal('#searcher', {
         duration: 3000
     });
+}
 
-    //scroll
+function linksScroll() {
     $('#moveToSearcher').click(function(e){
         e.preventDefault();
         var codigo = "#" + $(this).data("scroll");
@@ -38,7 +52,7 @@ $(document).ready(function(){
     $('#moveToKnownMovies').click(function(e){
         e.preventDefault();
         var codigo = "#" + $(this).data("scroll");
-        $("html,body").animate({scrollTop: $(codigo).offset().top='750px'},0);
+        $("html,body").animate({scrollTop: $(codigo).offset().top='850px'},0);
     });
 
     $('#moveToAboutThis').click(function(e){
@@ -46,4 +60,22 @@ $(document).ready(function(){
         var codigo = "#" + $(this).data("scroll");
         $("html,body").animate({scrollTop: $(codigo).offset().top='250px'},0);
     });
-});
+}
+
+function getKnownMovies() {
+    var movieImages = $('.img-movie');
+    var movieTitles = $('.title-movie');
+
+    //calling omdb api
+    $.getJSON("http://www.omdbapi.com/?apikey=f3161dc0&s='action'&")
+        .then(function(resp){
+            var respuestas = resp.Search;
+            console.log(respuestas);
+            $.each(movieImages,function(i){
+                movieTitles[i].textContent = respuestas[i].Title;
+                movieImages[i].src = respuestas[i].Poster;
+            });
+        
+            console.log(movieImages);
+        });
+}
