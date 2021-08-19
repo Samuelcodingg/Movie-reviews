@@ -2,6 +2,9 @@
 //when the DOM content is loaded
 $(document).ready(function(){
 
+    //render include components
+    renderIncludes();
+
     //show index components
     showIndexComponents();
 
@@ -11,7 +14,8 @@ $(document).ready(function(){
     //getting data for known movies
     getKnownMovies();
 
-    
+    //getting data by get
+
 });
 
 //animations with scrollreveals library
@@ -39,6 +43,12 @@ function showIndexComponents() {
 
     sr.reveal('#searcher', {
         duration: 3000
+    });
+
+    sr.reveal('#div-movie-results', {
+        duration: 4000,
+        origin: 'right',
+        distance: '-250px'
     });
 }
 
@@ -76,6 +86,29 @@ function getKnownMovies() {
                 movieImages[i].src = respuestas[i].Poster;
             });
         
+            if($('#div-movie-results')) {
+                for( var i = 0; i < 9; i++) {
+                    var element = `
+                        <div class="col-md-4 mt-5">
+                            <h1 class="title-movie fs-6 fs-md-4">${respuestas[i].Title}</h1>
+                            <img src="${respuestas[i].Poster}" class="img-fluid movie-result rounded">
+                        </div>`;
+                    $('#div-movie-results').append(element);
+                }
+            }
+            
             console.log(movieImages);
         });
+}
+
+function renderIncludes() {
+    $.ajax('../includes/footer.html', {
+        success: function(resp) {
+            $('body').append($(resp));
+        }
+    })
+}
+
+function getDataSearch() {
+    // $.ajax()
 }

@@ -28,6 +28,11 @@ body {
     height: 250px;
 }
 
+/*page movie results*/
+.movie-result {
+    height: 400px;
+}
+
 /*Responsive*/
 @media (max-width: 768px) {
     .fa-film {
