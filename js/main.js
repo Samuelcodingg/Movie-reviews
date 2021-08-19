@@ -15,6 +15,7 @@ $(document).ready(function(){
     getKnownMovies();
 
     //getting data by get
+    getDataSearch();
 
 });
 
@@ -110,5 +111,26 @@ function renderIncludes() {
 }
 
 function getDataSearch() {
-    // $.ajax()
+
+    
+
+    $('#search').click(function(e) {
+        e.preventDefault();
+        var movieResults = $('.movie-result');
+        var movieTitles = $('.title-movie');
+        var title = $('#element-searched')[0].value;
+
+        $.getJSON("http://www.omdbapi.com/?apikey=f3161dc0&s='"+ title +"'&")
+        .then(function(resp){
+            var respuestas = resp.Search;
+            console.log(respuestas);
+
+            $.each(movieResults,function(i){
+                movieTitles[i].textContent = respuestas[i].Title;
+                movieResults[i].src = respuestas[i].Poster;
+            });
+        });
+
+        
+    })
 }
