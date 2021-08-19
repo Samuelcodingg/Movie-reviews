@@ -1,6 +1,7 @@
 body {
     background-color: #212121;
     font-family: 'Rokkitt', serif !important;
+    overflow-x: hidden;
 }
 
 * {
@@ -31,6 +32,21 @@ body {
 /*page movie results*/
 .movie-result {
     height: 400px;
+    transition: all 300ms;
+}
+
+.watch-movie {
+    width: 200px;
+    top: -60px;
+    opacity: 0;
+}
+
+.movie-container:hover .movie-result{
+    filter: brightness(50%);
+}
+
+.movie-container:hover .watch-movie {
+    opacity: 1;
 }
 
 /*Responsive*/

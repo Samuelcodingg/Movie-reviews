@@ -90,9 +90,11 @@ function getKnownMovies() {
             if($('#div-movie-results')) {
                 for( var i = 0; i < 9; i++) {
                     var element = `
-                        <div class="col-md-4 mt-5">
+                        <div class="col-md-4 mt-5 movie-container">
                             <h1 class="title-movie fs-6 fs-md-4">${respuestas[i].Title}</h1>
                             <img src="${respuestas[i].Poster}" class="img-fluid movie-result rounded">
+                            <h1></h1> <!--bootstrap bug solved XD-->
+                            <a href="movie-info.html?id=${respuestas[i].imdbID}" class="btn btn-outline-light position-relative watch-movie" role="button">Watch info</a>
                         </div>`;
                     $('#div-movie-results').append(element);
                 }
@@ -111,9 +113,6 @@ function renderIncludes() {
 }
 
 function getDataSearch() {
-
-    
-
     $('#search').click(function(e) {
         e.preventDefault();
         var movieResults = $('.movie-result');
@@ -125,12 +124,29 @@ function getDataSearch() {
             var respuestas = resp.Search;
             console.log(respuestas);
 
-            $.each(movieResults,function(i){
-                movieTitles[i].textContent = respuestas[i].Title;
-                movieResults[i].src = respuestas[i].Poster;
+            cleanMovieResults();
+
+            if($('#div-movie-results')) {
+                for( var i = 0; i < 9; i++) {
+                    var element = `
+                        <div class="col-md-4 mt-5 movie-container">
+                            <h1 class="title-movie fs-6 fs-md-4">${respuestas[i].Title}</h1>
+                            <img src="${respuestas[i].Poster}" class="img-fluid movie-result rounded">
+                            <a href="movie-info.html?id=${respuestas[i].imdbID}" class="btn btn-outline-light position-relative watch-movie" role="button">Watch info</a>
+                        </div>`;
+                    $('#div-movie-results').append(element);
+                }
+            }
+
+            sr.reveal('.movie-container', {
+                duration: 4000,
+                origin: 'right',
+                distance: '-250px'
             });
         });
-
-        
     })
+}
+
+function cleanMovieResults() {
+    $('.movie-container').remove();
 }
