@@ -49,6 +49,7 @@ body {
     opacity: 1;
 }
 
+
 /*Responsive*/
 @media (max-width: 768px) {
     .fa-film {
