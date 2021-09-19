@@ -83,7 +83,7 @@ function getKnownMovies() {
     var movieImages = $('.img-movie');
     var movieTitles = $('.title-movie');
 
-    fetch("http://www.omdbapi.com/?apikey=f3161dc0&s='action'&")
+    fetch("https://www.omdbapi.com/?apikey=f3161dc0&s='action'&")
     .then(req => req.json())
     .then(resp => {
         var respuestas = resp.Search;
@@ -170,7 +170,7 @@ function getMoviesByURL() {
 
 function getJSONByTitle(title) {
 
-    fetch("http://www.omdbapi.com/?apikey=f3161dc0&s='"+ title +"'&")
+    fetch("https://www.omdbapi.com/?apikey=f3161dc0&s='"+ title +"'&")
     .then(req => req.json())
     .then(resp => {
         var respuestas = resp.Search;
@@ -231,7 +231,7 @@ function getInfoMovie() {
         const params = new URLSearchParams(document.location.search.substring(1));
         const id = params.get('id');
 
-        fetch("http://www.omdbapi.com/?apikey=f3161dc0&i="+ id +"&plot=full")
+        fetch("https://www.omdbapi.com/?apikey=f3161dc0&i="+ id +"&plot=full")
         .then(req => req.json())
         .then(resp => {
             var respuesta = resp;
